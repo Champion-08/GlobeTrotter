@@ -12,7 +12,7 @@
   <strong>🤝 Share</strong>
 </p>
 
----
+--
 
 ## 🌎 The Idea
 
