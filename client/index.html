@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Modern Atlas design: editorial cartography, ink-and-parchment surfaces, Route Saffron used only for decisive travel actions. -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GlobeTrotter — Personalized Travel Planning</title>
+  <meta name="description" content="GlobeTrotter — Your personalized AI-powered travel planning platform. Plan smarter routes, explore destinations, track budgets, and travel your way.">
+  <meta name="theme-color" content="#6846E8">
+  <link rel="icon" type="image/png" href="/manus-storage/globetrotter-mark_2d378a4c.png">
+
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons for UI Polish -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Three.js CDN — for interactive 3D globe in dashboard hero -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="/style.css">
+  
+  <!-- App JavaScript (Deferred) -->
+  <script src="/app.js" defer></script>
+  <script type="module" src="/src/syncBridge.ts"></script>
+</head>
+<body>
+  
+  <!-- App Container -->
+  <div id="app-container" class="app-layout">
+    
+    <!-- Sidebar (Desktop Navigation) -->
+    <aside id="app-sidebar" class="sidebar">
+      <div class="sidebar-brand">
+        <div class="logo-icon">
+          <i class="fa-solid fa-earth-americas"></i>
+        </div>
+        <span class="logo-text">Globe<span>Trotter</span></span>
+      </div>
+      
+      <!-- Primary Action -->
+      <button class="btn btn-primary sidebar-cta" id="sidebar-plan-trip-btn">
+        <i class="fa-solid fa-plus"></i>
+        <span>Plan a Trip</span>
+      </button>
+      
+      <!-- Nav Links -->
+      <nav class="sidebar-nav">
+        <a href="#dashboard" class="nav-item active" data-view="dashboard">
+          <i class="fa-solid fa-house"></i>
+          <span>Dashboard</span>
+        </a>
+        <a href="#my-trips" class="nav-item" data-view="my-trips">
+          <i class="fa-solid fa-route"></i>
+          <span>My Trips</span>
+        </a>
+        <a href="#explore" class="nav-item" data-view="explore">
+          <i class="fa-solid fa-compass"></i>
+          <span>Explore</span>
+        </a>
+        <a href="#calendar" class="nav-item" data-view="calendar">
+          <i class="fa-solid fa-calendar-days"></i>
+          <span>Calendar</span>
+        </a>
+        <a href="#community" class="nav-item" data-view="community">
+          <i class="fa-solid fa-users"></i>
+          <span>Community</span>
+        </a>
+        <a href="#admin" class="nav-item" data-view="admin">
+          <i class="fa-solid fa-chart-line"></i>
+          <span>Admin</span>
+        </a>
+        <a href="#settings" class="nav-item" data-view="settings">
+          <i class="fa-solid fa-sliders"></i>
+          <span>Settings</span>
+        </a>
+        <a href="#profile" class="nav-item" data-view="profile">
+          <i class="fa-solid fa-user-circle"></i>
+          <span>Profile</span>
+        </a>
+        <a href="#logout" class="nav-item" data-view="logout">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          <span>Logout</span>
+        </a>
+      </nav>
+      
+      <!-- User Profile Widget (Sidebar Footer) -->
+      <div class="sidebar-footer" id="sidebar-profile-widget">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Profile" class="avatar">
+        <div class="user-info">
+          <span class="user-name">Sarah Jenkins</span>
+          <span class="user-badge">Premium Traveler</span>
+        </div>
+      </div>
+    </aside>
+    
+    <!-- Main Content Container -->
+    <main id="main-panel" class="main-panel">
+      
+      <!-- Top Bar / Header -->
+      <header class="app-header">
+        <!-- Mobile-only: Hamburger + Brand -->
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Open navigation menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="header-mobile-brand">
+          <div class="logo-icon logo-icon-sm">
+            <i class="fa-solid fa-earth-americas"></i>
+          </div>
+          <span class="logo-text">Globe<span>Trotter</span></span>
+        </div>
+
+        <!-- Desktop: Search bar -->
+        <div class="header-search-bar" id="header-search-container">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="global-search-input" placeholder="Search destinations, activities, or trips...">
+        </div>
+        
+        <div class="header-actions">
+          <button class="header-icon-btn notification-btn" id="notification-bell">
+            <i class="fa-regular fa-bell"></i>
+            <span class="badge" id="notification-badge">2</span>
+          </button>
+          
+          <div class="header-profile-link" id="header-profile-menu">
+            <span class="header-profile-name">Sarah</span>
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Profile" class="avatar-sm">
+          </div>
+        </div>
+      </header>
+      
+      <!-- Dynamic Content View Area -->
+      <div id="main-content" class="content-viewport">
+        <!-- Views will be dynamically injected here by app.js -->
+        <div class="view-loader-container">
+          <div class="loader-spinner"></div>
+          <p>Loading your travel engine...</p>
+        </div>
+      </div>
+      
+    </main>
+    
+    <!-- Mobile Bottom Navigation -->
+    <nav id="mobile-nav" class="mobile-nav">
+      <a href="#dashboard" class="mobile-nav-item active" data-view="dashboard">
+        <i class="fa-solid fa-house"></i>
+        <span>Home</span>
+      </a>
+      <a href="#my-trips" class="mobile-nav-item" data-view="my-trips">
+        <i class="fa-solid fa-route"></i>
+        <span>Trips</span>
+      </a>
+      <button class="mobile-nav-fab" id="mobile-plan-trip-btn">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      <a href="#explore" class="mobile-nav-item" data-view="explore">
+        <i class="fa-solid fa-compass"></i>
+        <span>Explore</span>
+      </a>
+      <a href="#profile" class="mobile-nav-item" data-view="profile">
+        <i class="fa-solid fa-user"></i>
+        <span>Profile</span>
+      </a>
+    </nav>
+    
+  </div>
+
+  <!-- Mobile Navigation Drawer (slide-in from left) -->
+  <div id="mobile-nav-drawer" class="mobile-nav-drawer" aria-hidden="true">
+    <div class="mobile-drawer-header">
+      <div class="sidebar-brand">
+        <div class="logo-icon">
+          <i class="fa-solid fa-earth-americas"></i>
+        </div>
+        <span class="logo-text">Globe<span>Trotter</span></span>
+      </div>
+      <button class="mobile-drawer-close" id="mobile-drawer-close" aria-label="Close menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <button class="btn btn-primary sidebar-cta" id="mobile-drawer-plan-btn">
+      <i class="fa-solid fa-plus"></i>
+      <span>Plan a Trip</span>
+    </button>
+
+    <nav class="sidebar-nav mobile-drawer-nav">
+      <a href="#dashboard" class="nav-item active" data-view="dashboard" data-drawer-nav>
+        <i class="fa-solid fa-house"></i>
+        <span>Dashboard</span>
+      </a>
+      <a href="#my-trips" class="nav-item" data-view="my-trips" data-drawer-nav>
+        <i class="fa-solid fa-route"></i>
+        <span>My Trips</span>
+      </a>
+      <a href="#explore" class="nav-item" data-view="explore" data-drawer-nav>
+        <i class="fa-solid fa-compass"></i>
+        <span>Explore</span>
+      </a>
+      <a href="#calendar" class="nav-item" data-view="calendar" data-drawer-nav>
+        <i class="fa-solid fa-calendar-days"></i>
+        <span>Calendar</span>
+      </a>
+      <a href="#community" class="nav-item" data-view="community" data-drawer-nav>
+        <i class="fa-solid fa-users"></i>
+        <span>Community</span>
+      </a>
+      <a href="#admin" class="nav-item" data-view="admin" data-drawer-nav>
+        <i class="fa-solid fa-chart-line"></i>
+        <span>Admin</span>
+      </a>
+      <a href="#settings" class="nav-item" data-view="settings" data-drawer-nav>
+        <i class="fa-solid fa-sliders"></i>
+        <span>Settings</span>
+      </a>
+      <a href="#profile" class="nav-item" data-view="profile" data-drawer-nav>
+        <i class="fa-solid fa-user-circle"></i>
+        <span>Profile</span>
+      </a>
+      <a href="#logout" class="nav-item" data-view="logout" data-drawer-nav>
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <span>Logout</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer mobile-drawer-footer">
+      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Profile" class="avatar">
+      <div class="user-info">
+        <span class="user-name">Sarah Jenkins</span>
+        <span class="user-badge">Premium Traveler</span>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Overlay Backdrop for Modals/Drawers -->
+  <div id="modal-backdrop" class="modal-backdrop hidden"></div>
+  
+  <!-- Dynamic Modal / Drawer Slot -->
+  <div id="modal-container" class="modal-container hidden">
+    <!-- Modal content injected dynamically -->
+  </div>
+  
+  <!-- Dynamic Drawer (Slide up from bottom on mobile, right panel on desktop) -->
+  <div id="drawer-container" class="drawer-container hidden">
+    <!-- Drawer content injected dynamically -->
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container"></div>
+  
+</body>
+</html>
