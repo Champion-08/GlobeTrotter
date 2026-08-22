@@ -1,113 +1,75 @@
 # 🌍 GlobeTrotter
 
-> A smart and interactive travel planning platform for creating, organizing, and visualizing personalized trips.
+### ✈️ Plan Less. Explore More. Travel Smarter.
 
-## 🚀 About the Project
+> **GlobeTrotter** is a modern travel planning platform designed to turn a travel idea into a complete, organized, and budget-aware journey — all in one place.
 
-**GlobeTrotter** is a travel planning web application being developed for the **Odoo Hackathon**.
-
-The goal is to make trip planning simple, visual, and engaging by allowing users to organize destinations, activities, budgets, itineraries, and travel plans from one place.
-
-The project is currently under development.
-
----
-
-## 🎯 Problem We Are Solving
-
-Planning a multi-city trip often requires using multiple platforms for:
-
-- Finding destinations
-- Planning daily activities
-- Managing travel budgets
-- Organizing itineraries
-- Tracking trip dates
-- Sharing travel plans
-
-GlobeTrotter aims to bring these experiences together into a single, easy-to-use platform.
+<p align="center">
+  <strong>🗺️ Discover</strong> •
+  <strong>📍 Plan</strong> •
+  <strong>💰 Budget</strong> •
+  <strong>📅 Organize</strong> •
+  <strong>🤝 Share</strong>
+</p>
 
 ---
 
-## ✨ Planned Features
+## 🌎 The Idea
 
-### 🗺️ Trip Planning
-- Create a new trip
-- Select multiple destinations
-- Set travel dates
-- Add activities and places to visit
-- Organize activities by day
+Planning a trip shouldn't mean jumping between multiple apps, spreadsheets, maps, notes, and social media.
 
-### 💰 Budget Analyzer
-- Set an overall trip budget
-- Add expenses
-- Categorize expenses
-- Calculate total estimated cost
-- Compare planned spending with the budget
-- Display remaining budget
+**GlobeTrotter brings the entire journey together.**
 
-### 📅 Calendar View
-- View trips on a calendar
-- See activities by date
-- Track upcoming trips
-
-### 🔎 Explore Destinations
-- Search cities and destinations
-- Discover attractions and activities
-- Filter destinations by category
-
-### 👤 User Profile
-- Manage user information
-- Set travel preferences
-- View planned and previous trips
-
-### 🤝 Community
-- Discover itineraries shared by other travelers
-- Preview travel plans
-- Copy and customize itineraries
-
-### 📊 Admin Dashboard
-- View platform statistics
-- Monitor trips and users
-- Analyze popular destinations
+From choosing destinations to creating day-by-day itineraries and keeping your spending under control, GlobeTrotter provides a single visual workspace for planning your next adventure.
 
 ---
 
-## 🎨 UI/UX
+## 💡 The Problem
 
-The application is designed with a clean and modern travel-focused interface.
+Travelers often struggle with:
 
-### Design Goals
+- ❌ Managing multiple destinations
+- ❌ Organizing activities across different days
+- ❌ Keeping track of travel expenses
+- ❌ Remembering important trip dates
+- ❌ Finding activities that fit their trip
+- ❌ Sharing complete itineraries with others
 
-- Simple navigation
-- Mobile-friendly experience
-- Clear information hierarchy
-- Minimal and modern UI
-- Responsive layouts
-- Easy trip creation
-- Visual budget tracking
+## 💡 Our Solution
 
-The initial design was created from the provided hackathon wireframes and is being transformed into a functional web interface.
+GlobeTrotter combines these tasks into one intuitive platform.
 
----
-
-## 🛠️ Tech Stack
-
-Currently planned / being used:
-
-- **HTML5**
-- **CSS3**
-- **JavaScript**
-- **Git & GitHub**
-
-Additional technologies may be introduced as development progresses.
+> **One trip. One workspace. One complete travel experience.**
 
 ---
 
-## 📁 Project Structure
+# ✨ Core Features
+
+## 🗺️ 01 — Create Your Trip
+
+Start with a destination and build your journey.
+
+- Select travel dates
+- Add destinations
+- Set a travel budget
+- Add activities
+- Organize multiple stops
+
+---
+
+## 🧭 02 — Build Your Itinerary
+
+Turn destinations into a structured day-by-day journey.
 
 ```text
-globetrotter/
-│
-├── index.html
-├── style.css
-├── app.js
-└── README.md
+DAY 01
+Paris
+ ├── Eiffel Tower
+ ├── Louvre Museum
+ └── Seine River Walk
+
+DAY 02
+Rome
+ ├── Colosseum
+ ├── Roman Forum
+ └── Trevi Fountain
